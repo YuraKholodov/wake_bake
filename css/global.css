@@ -1,0 +1,206 @@
+:root {
+  --general-text: rgb(49, 44, 39);
+  --accent-text: rgb(31, 23, 17);
+  --general-bg: rgb(255, 249, 244);
+  --accent-bg: rgb(255, 224, 203);
+  --accent-color: rgb(255, 165, 92);
+  --input-color: rgb(172, 144, 122);
+  --transition: 0.5s;
+  --border-radius: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5vw;
+}
+
+body {
+  font-family: "Montserrat", "Arial", sans-serif;
+  line-height: 1.5;
+  color: var(--general-text);
+  background: var(--general-bg);
+}
+
+.body--opened-menu {
+  overflow: hidden;
+}
+
+.body--opened-modal {
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.main__about {
+  padding: 140px 0;
+}
+
+.main__program,
+.main__gallery,
+.main__testimonials {
+  padding-bottom: 140px;
+}
+
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100%;
+}
+
+.title {
+  color: var(--accent-text);
+  font-family: "Gabriola";
+  font-size: 74px;
+  line-height: 0.82;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 15px;
+  height: 62px;
+  background-color: var(--accent-color);
+  border-radius: 60px;
+  text-align: center;
+  width: 100%;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--general-text);
+
+  transition: var(--transition);
+}
+
+.button:hover {
+  background: rgb(255, 145, 56);
+}
+
+/* ===================================================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.274);
+  z-index: 10;
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.body--opened-modal .modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__window {
+  position: relative;
+  background: var(--general-bg);
+  border-radius: var(--border-radius);
+  padding: 0 60px 60px;
+  max-width: 428px;
+}
+
+.modal__cancel {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.modal__cancel path,
+.modal__cancel rect {
+  transition: var(--transition);
+}
+
+.modal__cancel:hover path,
+.modal__cancel:hover rect {
+  stroke: var(--input-color);
+}
+
+.modal__img {
+  margin: -65px 0 15px 13px;
+  max-width: 100%;
+}
+
+.modal__title {
+  color: var(--accent-text);
+  font-family: "Gabriola";
+  font-size: 42px;
+  line-height: 0.9;
+  margin-bottom: 10px;
+}
+
+.modal__text {
+  margin-bottom: 30px;
+}
+
+.modal__form-label {
+  margin-bottom: 10px;
+}
+
+.field {
+  position: relative;
+  display: block;
+}
+
+.field span {
+  position: absolute;
+  top: 12px;
+  left: 28px;
+  font-size: 11px;
+  color: var(--input-color);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.field__input {
+  border: 1px solid var(--input-color);
+  border-radius: 100px;
+  padding: 19px 28px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.field__input:hover {
+  border-color: var(--accent-color);
+}
+
+.field__input::placeholder {
+  color: var(--input-color);
+  transition: var(--transition);
+}
+
+.field__input:hover::placeholder {
+  color: var(--accent-color);
+}
+
+.field__input:focus {
+  padding: 26px 42px 12px 28px;
+}
+
+.field__input:focus + span {
+  visibility: visible;
+  opacity: 1;
+}
